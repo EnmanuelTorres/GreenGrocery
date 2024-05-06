@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="myViewController" customModule="GreenGrocery" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="OOS-Hh-LwN" id="oEB-Ex-SzF"/>
+                <outlet property="minusButton" destination="uUm-1e-GPb" id="TN1-jC-AeL"/>
+                <outlet property="plusButton" destination="jSk-F9-ITO" id="qWb-aQ-Dvu"/>
+                <outlet property="stepLabel" destination="XKD-q6-xf9" id="UU0-3d-OWX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="116" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="woL-4g-Kb3">
+                    <rect key="frame" x="0.0" y="0.0" width="116" height="80"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOS-Hh-LwN">
+                            <rect key="frame" x="0.0" y="0.0" width="116" height="48"/>
+                            <color key="backgroundColor" red="0.0039215686274509803" green="0.28627450980392155" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="0.99014136900000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Add to Bag"/>
+                            <connections>
+                                <action selector="addToBag:" destination="-1" eventType="touchUpInside" id="UAb-fK-QvZ"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zir-Y8-1bA">
+                            <rect key="frame" x="0.0" y="48" width="116" height="32"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUm-1e-GPb">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                    <color key="backgroundColor" red="0.0039215686274509803" green="0.28627450980392155" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="o84-Bg-QQh"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.99014136900000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="-">
+                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="decrementButton:" destination="-1" eventType="touchUpInside" id="SCh-89-i8b"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKD-q6-xf9">
+                                    <rect key="frame" x="30" y="0.0" width="54" height="32"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSk-F9-ITO">
+                                    <rect key="frame" x="84" y="0.0" width="32" height="32"/>
+                                    <color key="backgroundColor" red="0.0039215686274509803" green="0.28627450980392155" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="32" id="VEc-rf-CJO"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.99014136900000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="+">
+                                        <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="incrementButton:" destination="-1" eventType="touchUpInside" id="Hob-xr-GNx"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.99014136900000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="woL-4g-Kb3" secondAttribute="trailing" id="6ss-Mf-QlM"/>
+                <constraint firstItem="woL-4g-Kb3" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="8Lq-Ir-OaW"/>
+                <constraint firstItem="woL-4g-Kb3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KBm-Cv-RZn"/>
+                <constraint firstItem="woL-4g-Kb3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LjB-Fb-7hr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="83.969465648854964" y="28.169014084507044"/>
+        </view>
+    </objects>
+</document>
