@@ -13,8 +13,8 @@ protocol HomePresentation {
 
 class HomePresenter {
     weak var view: HomeView?
-    var interactor: HomeUseCase
-    var router: HomeRouting
+    var interactor: HomeUseCase?
+    var router: HomeRouting?
     
     init(view: HomeView, interactor: HomeUseCase, router: HomeRouting) {
         self.view = view
@@ -26,16 +26,35 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomePresentation {
+    
     func viewDidLoad() {
-        let homeModel = self.interactor.getTitle()
-        print("debud: \(homeModel)")
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else {return }
-            self.view?.updateTitle(title: homeModel.title)
-
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.interactor?.getGroceries { result in
+               let groceryList = result.groceries.compactMap({GroceryItemViewModel(using: $0) })
+                DispatchQueue.main.async {
+                    self?.view?.updateGroceries(groceriesList: groceryList)
+                }
+            }
         }
+        
+       
     }
     
+}
+
+struct GroceryItemViewModel {
     
+    let id: String
+    let title: String
+    let details: String
+    let image: String
+    let price: String
+    
+    init(using groceryModel: Grocery) {
+        self.id = groceryModel.skuId
+        self.title = groceryModel.title
+        self.details = groceryModel.details
+        self.image = groceryModel.image
+        self.price = "$ \(groceryModel.price)"
+    }
 }

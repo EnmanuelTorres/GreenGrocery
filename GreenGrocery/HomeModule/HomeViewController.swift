@@ -8,23 +8,30 @@
 import UIKit
 
 protocol HomeView: AnyObject{
-    func updateTitle(title: String)
+    func updateGroceries(groceriesList: [GroceryItemViewModel]) -> Void
 }
 
 class HomeViewController: UIViewController {
-
-    @IBOutlet weak var helloLabel: UILabel!
-    
-
-    @IBOutlet weak var containerStackView: UIStackView!
     
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    private static let groceryCellID = "groceryCellID"
+    
+    var dataSource: [GroceryItemViewModel] = [] {
+        
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     lazy var custom : customView = {
         let control = customView()
         let viewModel = AddBagViewModel(id: "22", title: "Add to Bag", stepValue: 0)
-        control.viewModel = viewModel
-       
+       // control.viewModel = viewModel
+        control.configure(usingViewModel: viewModel, bagClosure: { stepValue in
+            print("este es el stepValue \(stepValue)")
+        })
         return control
         
     }()
@@ -33,23 +40,51 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
-        view.backgroundColor = .red
       
         setupCounterView()
     }
     
     private func setupCounterView() {
-        containerStackView.addArrangedSubview(custom)
+     //   containerStackView.addArrangedSubview(custom)
+        self.tableView.register(UINib(nibName: "GroceryItemCell", bundle: nil), forCellReuseIdentifier: HomeViewController.groceryCellID)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
 
 
 }
 
 extension HomeViewController: HomeView {
-    func updateTitle(title: String) {
-        helloLabel.text = title
+    func updateGroceries(groceriesList: [GroceryItemViewModel]) {
+        print("Grocery list: \(groceriesList)")
+        self.dataSource = groceriesList
+       
+    }
+    
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = dataSource[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.groceryCellID, for: indexPath) as! GroceryItemCell
+        
+        cell.configure(usingViewModel: viewModel) { (skuId: String, stepValue: Int) in
+            print("hola")
+        }
+        return cell
+    }
+}
+
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     
 }
-

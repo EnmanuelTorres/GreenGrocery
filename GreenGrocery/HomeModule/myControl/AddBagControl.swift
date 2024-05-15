@@ -35,19 +35,25 @@ class customView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        config()
+        setUp()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        config()
+        setUp()
     }
     
-    func config(){
+    func setUp(){
         guard let view = self.loadFromNib(nibName: "AddBagControl") else {return }
         backgroundColor = .clear
         view.frame = self.bounds
         self.addSubview(view)
+    }
+    
+    func configure(usingViewModel viewModel: AddBagViewModel, bagClosure: @escaping BagClosure) -> Void {
+        self.viewModel = viewModel
+        self.addButton.setTitle(viewModel.title, for: .normal)
+        self.closure = bagClosure
     }
     
     @IBAction func addToBag(_ sender: Any) {
