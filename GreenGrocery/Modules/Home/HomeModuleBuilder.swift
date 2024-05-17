@@ -9,15 +9,16 @@ import UIKit
 
 class HomeModuleBuilder {
     
-    static func build() -> UIViewController {
+    static func build(usingNavigationFactory factory: NavigationFactory) -> UINavigationController {
        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        view.title = "Fresh Groceries"
         let interactor = HomeInteractor(service: Service.shared)
         let router = HomeRouter(viewController: view)
         let presenter = HomePresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
         
-        return view
+        return factory(view)
     }
 }

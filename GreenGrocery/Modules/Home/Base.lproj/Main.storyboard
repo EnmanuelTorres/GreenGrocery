@@ -17,25 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZBX-Ua-JPu">
-                                <rect key="frame" x="0.0" y="125" width="393" height="727"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Fresh Groceries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00P-Xq-M77">
-                                <rect key="frame" x="16" y="93" width="164" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="00P-Xq-M77" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="4wC-f7-6Hi"/>
-                            <constraint firstItem="ZBX-Ua-JPu" firstAttribute="top" secondItem="00P-Xq-M77" secondAttribute="bottom" constant="8" symbolic="YES" id="5zx-Zw-UyP"/>
-                            <constraint firstItem="ZBX-Ua-JPu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="Dz2-Xo-6Hm"/>
+                            <constraint firstItem="ZBX-Ua-JPu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Dz2-Xo-6Hm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZBX-Ua-JPu" secondAttribute="trailing" id="H98-Ej-4sQ"/>
                             <constraint firstItem="ZBX-Ua-JPu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O5s-Xj-N8k"/>
-                            <constraint firstItem="00P-Xq-M77" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jux-t0-g10"/>
+                            <constraint firstItem="ZBX-Ua-JPu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="r2R-8b-t7H"/>
                         </constraints>
                     </view>
                     <connections>
@@ -50,9 +42,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

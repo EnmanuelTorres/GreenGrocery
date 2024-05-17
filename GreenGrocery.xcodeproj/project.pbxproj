@@ -18,6 +18,8 @@
 		4E0065172BCD87FB00B36CCC /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */; };
 		4E0065192BCD894F00B36CCC /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065182BCD894F00B36CCC /* HomeModel.swift */; };
 		4E00651C2BCD8A8900B36CCC /* HomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */; };
+		4E66B90E2BF7BC33003DC62D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */; };
+		4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */; };
 		4EB3728A2BEFBACA00078401 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB372882BEFBACA00078401 /* GroceryItemCell.swift */; };
 		4EB3728B2BEFBACA00078401 /* GroceryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB372892BEFBACA00078401 /* GroceryItemCell.xib */; };
 		4EB3728E2BEFD1DF00078401 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3728D2BEFD1DF00078401 /* Service.swift */; };
@@ -42,6 +44,8 @@
 		4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		4E0065182BCD894F00B36CCC /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilder.swift; sourceTree = "<group>"; };
+		4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
 		4EB372882BEFBACA00078401 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		4EB372892BEFBACA00078401 /* GroceryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroceryItemCell.xib; sourceTree = "<group>"; };
 		4EB3728D2BEFD1DF00078401 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -87,10 +91,9 @@
 				4EB3728C2BEFD16800078401 /* HttpService */,
 				4EBA32DA2BE85AC00092104D /* shared */,
 				4E00651A2BCD899900B36CCC /* Entity */,
-				4E0065112BCD812600B36CCC /* HomeModule */,
+				4E0065112BCD812600B36CCC /* Modules */,
 				4E0064FD2BCD80E300B36CCC /* AppDelegate.swift */,
 				4E0064FF2BCD80E300B36CCC /* SceneDelegate.swift */,
-				4E0065032BCD80E300B36CCC /* Main.storyboard */,
 				4E0065062BCD80E400B36CCC /* Assets.xcassets */,
 				4E0065082BCD80E400B36CCC /* LaunchScreen.storyboard */,
 				4E00650B2BCD80E400B36CCC /* Info.plist */,
@@ -98,18 +101,14 @@
 			path = GreenGrocery;
 			sourceTree = "<group>";
 		};
-		4E0065112BCD812600B36CCC /* HomeModule */ = {
+		4E0065112BCD812600B36CCC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4EBA32EF2BE893650092104D /* myControl */,
-				4EF2DFE52BD048780030633D /* Cell */,
-				4E0065012BCD80E300B36CCC /* HomeViewController.swift */,
-				4E0065122BCD86E000B36CCC /* HomePresenter.swift */,
-				4E0065142BCD879C00B36CCC /* HomeRouter.swift */,
-				4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */,
-				4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */,
+				4E66B9102BF7BD8E003DC62D /* Navigation */,
+				4EBA32EF2BE893650092104D /* Control */,
+				4E66B90C2BF7BA9C003DC62D /* Home */,
 			);
-			path = HomeModule;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		4E00651A2BCD899900B36CCC /* Entity */ = {
@@ -118,6 +117,28 @@
 				4E0065182BCD894F00B36CCC /* HomeModel.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		4E66B90C2BF7BA9C003DC62D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4EF2DFE52BD048780030633D /* Cell */,
+				4E0065032BCD80E300B36CCC /* Main.storyboard */,
+				4E0065012BCD80E300B36CCC /* HomeViewController.swift */,
+				4E0065122BCD86E000B36CCC /* HomePresenter.swift */,
+				4E0065142BCD879C00B36CCC /* HomeRouter.swift */,
+				4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */,
+				4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4E66B9102BF7BD8E003DC62D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		4EB3728C2BEFD16800078401 /* HttpService */ = {
@@ -140,17 +161,18 @@
 			isa = PBXGroup;
 			children = (
 				4EBA32DB2BE85B3E0092104D /* ViewLoadable.swift */,
+				4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
 		};
-		4EBA32EF2BE893650092104D /* myControl */ = {
+		4EBA32EF2BE893650092104D /* Control */ = {
 			isa = PBXGroup;
 			children = (
 				4EBA32F02BE893CF0092104D /* AddBagControl.swift */,
 				4EBA32F12BE893CF0092104D /* AddBagControl.xib */,
 			);
-			path = myControl;
+			path = Control;
 			sourceTree = "<group>";
 		};
 		4EF2DFE52BD048780030633D /* Cell */ = {
@@ -243,12 +265,14 @@
 				4E0065022BCD80E300B36CCC /* HomeViewController.swift in Sources */,
 				4E0064FE2BCD80E300B36CCC /* AppDelegate.swift in Sources */,
 				4E0065002BCD80E300B36CCC /* SceneDelegate.swift in Sources */,
+				4E66B90E2BF7BC33003DC62D /* UIColor+Extension.swift in Sources */,
 				4EB3728E2BEFD1DF00078401 /* Service.swift in Sources */,
 				4E0065192BCD894F00B36CCC /* HomeModel.swift in Sources */,
 				4E0065172BCD87FB00B36CCC /* HomeInteractor.swift in Sources */,
 				4E0065132BCD86E000B36CCC /* HomePresenter.swift in Sources */,
 				4E0065152BCD879C00B36CCC /* HomeRouter.swift in Sources */,
 				4EBA32DC2BE85B3E0092104D /* ViewLoadable.swift in Sources */,
+				4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
