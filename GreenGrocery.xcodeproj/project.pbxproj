@@ -20,6 +20,11 @@
 		4E00651C2BCD8A8900B36CCC /* HomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */; };
 		4E66B90E2BF7BC33003DC62D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */; };
 		4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */; };
+		4E66B9152BF7FBAC003DC62D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9142BF7FBAC003DC62D /* Database.swift */; };
+		4E66B9172BF7FDD3003DC62D /* CartDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9162BF7FDD3003DC62D /* CartDB.swift */; };
+		4E66B9192BF7FE9B003DC62D /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9182BF7FE9B003DC62D /* CartItem.swift */; };
+		4E66B9292BF80240003DC62D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4E66B9282BF80240003DC62D /* RealmSwift */; };
+		4E66B92B2BF80430003DC62D /* RealmCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B92A2BF80430003DC62D /* RealmCartItem.swift */; };
 		4EB3728A2BEFBACA00078401 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB372882BEFBACA00078401 /* GroceryItemCell.swift */; };
 		4EB3728B2BEFBACA00078401 /* GroceryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB372892BEFBACA00078401 /* GroceryItemCell.xib */; };
 		4EB3728E2BEFD1DF00078401 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3728D2BEFD1DF00078401 /* Service.swift */; };
@@ -46,6 +51,10 @@
 		4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilder.swift; sourceTree = "<group>"; };
 		4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
+		4E66B9142BF7FBAC003DC62D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		4E66B9162BF7FDD3003DC62D /* CartDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDB.swift; sourceTree = "<group>"; };
+		4E66B9182BF7FE9B003DC62D /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		4E66B92A2BF80430003DC62D /* RealmCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCartItem.swift; sourceTree = "<group>"; };
 		4EB372882BEFBACA00078401 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		4EB372892BEFBACA00078401 /* GroceryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroceryItemCell.xib; sourceTree = "<group>"; };
 		4EB3728D2BEFD1DF00078401 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E66B9292BF80240003DC62D /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +97,7 @@
 		4E0064FC2BCD80E300B36CCC /* GreenGrocery */ = {
 			isa = PBXGroup;
 			children = (
+				4E66B9132BF7FAF5003DC62D /* Database */,
 				4EB3728F2BEFF17900078401 /* Model */,
 				4EB3728C2BEFD16800078401 /* HttpService */,
 				4EBA32DA2BE85AC00092104D /* shared */,
@@ -141,6 +152,24 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		4E66B9132BF7FAF5003DC62D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				4E66B91A2BF80009003DC62D /* Entity */,
+				4E66B9142BF7FBAC003DC62D /* Database.swift */,
+				4E66B9162BF7FDD3003DC62D /* CartDB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		4E66B91A2BF80009003DC62D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4E66B92A2BF80430003DC62D /* RealmCartItem.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		4EB3728C2BEFD16800078401 /* HttpService */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4EB372902BEFF18700078401 /* GroceryResult.swift */,
+				4E66B9182BF7FE9B003DC62D /* CartItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +230,9 @@
 			dependencies = (
 			);
 			name = GreenGrocery;
+			packageProductDependencies = (
+				4E66B9282BF80240003DC62D /* RealmSwift */,
+			);
 			productName = GreenGrocery;
 			productReference = 4E0064FA2BCD80E300B36CCC /* GreenGrocery.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +261,9 @@
 				Base,
 			);
 			mainGroup = 4E0064F12BCD80E300B36CCC;
+			packageReferences = (
+				4E66B9252BF80240003DC62D /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 4E0064FB2BCD80E300B36CCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -262,14 +298,18 @@
 				4EBA32F22BE893CF0092104D /* AddBagControl.swift in Sources */,
 				4EB372912BEFF18700078401 /* GroceryResult.swift in Sources */,
 				4EB3728A2BEFBACA00078401 /* GroceryItemCell.swift in Sources */,
+				4E66B9192BF7FE9B003DC62D /* CartItem.swift in Sources */,
 				4E0065022BCD80E300B36CCC /* HomeViewController.swift in Sources */,
 				4E0064FE2BCD80E300B36CCC /* AppDelegate.swift in Sources */,
+				4E66B9152BF7FBAC003DC62D /* Database.swift in Sources */,
+				4E66B9172BF7FDD3003DC62D /* CartDB.swift in Sources */,
 				4E0065002BCD80E300B36CCC /* SceneDelegate.swift in Sources */,
 				4E66B90E2BF7BC33003DC62D /* UIColor+Extension.swift in Sources */,
 				4EB3728E2BEFD1DF00078401 /* Service.swift in Sources */,
 				4E0065192BCD894F00B36CCC /* HomeModel.swift in Sources */,
 				4E0065172BCD87FB00B36CCC /* HomeInteractor.swift in Sources */,
 				4E0065132BCD86E000B36CCC /* HomePresenter.swift in Sources */,
+				4E66B92B2BF80430003DC62D /* RealmCartItem.swift in Sources */,
 				4E0065152BCD879C00B36CCC /* HomeRouter.swift in Sources */,
 				4EBA32DC2BE85B3E0092104D /* ViewLoadable.swift in Sources */,
 				4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */,
@@ -503,6 +543,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4E66B9252BF80240003DC62D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4E66B9282BF80240003DC62D /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E66B9252BF80240003DC62D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4E0064F22BCD80E300B36CCC /* Project object */;
 }

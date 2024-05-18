@@ -28,7 +28,6 @@ class HomeViewController: UIViewController {
     lazy var custom : customView = {
         let control = customView()
         let viewModel = AddBagViewModel(id: "22", title: "Add to Bag", stepValue: 0)
-       // control.viewModel = viewModel
         control.configure(usingViewModel: viewModel, bagClosure: { stepValue in
             print("este es el stepValue \(stepValue)")
         })
@@ -72,8 +71,10 @@ extension HomeViewController: UITableViewDataSource {
         let viewModel = dataSource[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewController.groceryCellID, for: indexPath) as! GroceryItemCell
         
-        cell.configure(usingViewModel: viewModel) { (skuId: String, stepValue: Int) in
-            print("hola")
+        cell.configure(usingViewModel: viewModel) { result in
+            print("Cart item added with sku = \(result.skuId) and quantity = \(result.stepValue)")
+            let skuItem: SkuItem = (skuId: result.skuId, quantity: result.stepValue)
+            self.presenter?.onAddToCart(skuItem: skuItem)
         }
         return cell
     }

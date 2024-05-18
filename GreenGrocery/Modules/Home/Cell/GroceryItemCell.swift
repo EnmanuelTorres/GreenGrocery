@@ -19,6 +19,7 @@ class GroceryItemCell: UITableViewCell {
     
     @IBOutlet weak var addToBagControl: customView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

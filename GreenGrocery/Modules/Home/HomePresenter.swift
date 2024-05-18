@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomePresentation {
     func viewDidLoad() -> Void
+    func onAddToCart(skuItem: SkuItem) -> Void
 }
 
 class HomePresenter {
@@ -26,6 +27,8 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomePresentation {
+   
+    
     
     func viewDidLoad() {
         DispatchQueue.global(qos: .background).async { [weak self] in
@@ -39,6 +42,19 @@ extension HomePresenter: HomePresentation {
         
        
     }
+    
+    func onAddToCart(skuItem: SkuItem) -> Void {
+        
+        DispatchQueue.global(qos: .background).async {
+            let updated = self.interactor?.addToCart(skuItem: skuItem)
+            print("Add to cart updated with result: \(String(describing: updated))")
+            
+            DispatchQueue.main.async {
+                /// Lets implement a spinner for this one
+            }
+        }
+    }
+       
     
 }
 
