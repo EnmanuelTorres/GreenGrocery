@@ -19,8 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
          let window = UIWindow(windowScene: windowScene)
-        let initialViewController = HomeModuleBuilder.build(usingNavigationFactory: NavigationBuilder.build(rootView:))
-         window.rootViewController = initialViewController
+        
+        let submodules = (
+            home: HomeModuleBuilder.build(usingNavigationFactory: NavigationBuilder.build(rootView:)),
+            cart: CartModuleBuilder.build(usingNavigationFactory: NavigationBuilder.build(rootView:)),
+            profile: ProfileModuleBuilder.build(usingNavigationFactory: NavigationBuilder.build(rootView:))
+        )
+        let tabBarController = TabBarModuleBuilder.build(usingSubmodules: submodules)
+         window.rootViewController = tabBarController
         self.window = window
          window.makeKeyAndVisible()
     }
