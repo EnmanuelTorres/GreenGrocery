@@ -34,6 +34,8 @@
 		4E66B93E2BF97F3B003DC62D /* TabBarModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B93D2BF97F3B003DC62D /* TabBarModuleBuilder.swift */; };
 		4E66B9402BF97F6A003DC62D /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B93F2BF97F6A003DC62D /* TabBarRouter.swift */; };
 		4E66B9422BF98BB2003DC62D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E66B9412BF98BB2003DC62D /* Profile.storyboard */; };
+		4E66B9442BFA3A77003DC62D /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9432BFA3A77003DC62D /* CartInteractor.swift */; };
+		4E66B9462BFA448A003DC62D /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9452BFA448A003DC62D /* TabBarPresenter.swift */; };
 		4EB3728A2BEFBACA00078401 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB372882BEFBACA00078401 /* GroceryItemCell.swift */; };
 		4EB3728B2BEFBACA00078401 /* GroceryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB372892BEFBACA00078401 /* GroceryItemCell.xib */; };
 		4EB3728E2BEFD1DF00078401 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3728D2BEFD1DF00078401 /* Service.swift */; };
@@ -73,6 +75,8 @@
 		4E66B93D2BF97F3B003DC62D /* TabBarModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModuleBuilder.swift; sourceTree = "<group>"; };
 		4E66B93F2BF97F6A003DC62D /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		4E66B9412BF98BB2003DC62D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		4E66B9432BFA3A77003DC62D /* CartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
+		4E66B9452BFA448A003DC62D /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		4EB372882BEFBACA00078401 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		4EB372892BEFBACA00078401 /* GroceryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroceryItemCell.xib; sourceTree = "<group>"; };
 		4EB3728D2BEFD1DF00078401 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -215,8 +219,10 @@
 			isa = PBXGroup;
 			children = (
 				4E66B93B2BF97E6E003DC62D /* GroceryTabBarController.swift */,
-				4E66B93D2BF97F3B003DC62D /* TabBarModuleBuilder.swift */,
 				4E66B93F2BF97F6A003DC62D /* TabBarRouter.swift */,
+				4E66B9432BFA3A77003DC62D /* CartInteractor.swift */,
+				4E66B9452BFA448A003DC62D /* TabBarPresenter.swift */,
+				4E66B93D2BF97F3B003DC62D /* TabBarModuleBuilder.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				4E66B9192BF7FE9B003DC62D /* CartItem.swift in Sources */,
 				4E66B9362BF97CCE003DC62D /* ProfileViewController.swift in Sources */,
 				4E0065022BCD80E300B36CCC /* HomeViewController.swift in Sources */,
+				4E66B9462BFA448A003DC62D /* TabBarPresenter.swift in Sources */,
 				4E0064FE2BCD80E300B36CCC /* AppDelegate.swift in Sources */,
 				4E66B9152BF7FBAC003DC62D /* Database.swift in Sources */,
 				4E66B9172BF7FDD3003DC62D /* CartDB.swift in Sources */,
@@ -373,6 +380,7 @@
 				4E0065152BCD879C00B36CCC /* HomeRouter.swift in Sources */,
 				4EBA32DC2BE85B3E0092104D /* ViewLoadable.swift in Sources */,
 				4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */,
+				4E66B9442BFA3A77003DC62D /* CartInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

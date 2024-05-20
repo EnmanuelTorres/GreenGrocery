@@ -13,9 +13,18 @@ typealias GroceryTabs = (
     profile: UIViewController
 )
 
-class GroceryTabBarController: UITabBarController {
+protocol TabBarView: NSObject {
+    func updateCartCount(count: Int) -> Void
+}
 
-    init(tabs: GroceryTabs) {
+class GroceryTabBarController: UITabBarController {
+    
+    var cartTab: UIViewController
+    var presenter: TabBarPresentation?
+
+    init(tabs: GroceryTabs, presenter: TabBarPresentation ) {
+        self.presenter = presenter
+        self.cartTab = tabs.cart
         super.init(nibName: nil, bundle: nil)
         viewControllers = [tabs.home, tabs.cart, tabs.profile]
     }
@@ -26,6 +35,14 @@ class GroceryTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.presenter?.viewDidLoad()
     }
+}
+
+extension GroceryTabBarController: TabBarView {
+    func updateCartCount(count: Int) {
+        self.cartTab.tabBarItem.badgeValue =  count > 0  ?"\(count)" : nil
+    }
+    
+    
 }

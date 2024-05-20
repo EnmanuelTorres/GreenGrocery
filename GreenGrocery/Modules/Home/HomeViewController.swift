@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeView {
     func updateGroceries(groceriesList: [GroceryItemViewModel]) {
-        print("Grocery list: \(groceriesList)")
+    
         self.dataSource = groceriesList
        
     }

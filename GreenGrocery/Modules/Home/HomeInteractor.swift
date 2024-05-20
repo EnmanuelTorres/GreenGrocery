@@ -38,7 +38,15 @@ extension HomeInteractor: HomeUseCase {
     }
     
     
-    func addToCart(skuItem: SkuItem) -> Bool {
-        return database.updateCart(using: CartItem(skuId: skuItem.skuId, value: skuItem.quantity))
-    }
+//    func addToCart(skuItem: SkuItem) -> Bool {
+//        return database.updateCart(using: CartItem(skuId: skuItem.skuId, value: skuItem.quantity))
+//    }
+    
+        func addToCart(skuItem: SkuItem) -> Bool {
+    
+            guard skuItem.quantity > 0 else {
+                return self.database.delete(usingSkuId: skuItem.skuId)
+            }
+            return self.database.updateCart(using: CartItem(skuId: skuItem.skuId, value: skuItem.quantity))
+        }
 }

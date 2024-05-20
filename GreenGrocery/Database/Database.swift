@@ -7,13 +7,21 @@
 
 import RealmSwift
 
-
 class Database {
     static let shared : Database = Database()
+    var notificationToken: NotificationToken?
     private init() { }
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
 }
 
 extension Database: CartDB {
+   
+    
+  
+    
     func updateCart(using cartItem: CartItem) -> (Bool) {
         let realm = try! Realm()
         
@@ -28,5 +36,31 @@ extension Database: CartDB {
         return true
     }
     
+    
+    func getCount(closure: @escaping CartCountClosure) {
+        
+        let realm = try! Realm()
+        let results = realm.objects(RealmCartItem.self)
+        
+        notificationToken = results.observe({ _ in
+            closure(results.count)
+        })
+    }
+    
+    func delete(usingSkuId skuId: String) -> (Bool) {
+        let realm = try! Realm()
+        
+        do {
+            try realm.write {
+                if let realmObject = realm.objects(RealmCartItem.self).first(where: { $0.skuId == skuId }) {
+                    realm.delete(realmObject)
+                }
+            }
+        } catch {
+            print("Something went wrong with error: \(error)")
+            return false
+        }
+        return true
+    }
     
 }
