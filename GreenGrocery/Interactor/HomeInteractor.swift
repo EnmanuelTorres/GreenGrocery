@@ -9,12 +9,6 @@ import Foundation
 
 typealias SkuItem = (skuId: String, quantity: Int)
 
-protocol HomeUseCase {
-   
-    func getGroceries(completion: GroceriesClosure) -> (Void)
-    func addToCart(skuItem: SkuItem) -> Bool
-}
-
 class HomeInteractor {
     
     var service: GroceriesAPI
@@ -26,9 +20,7 @@ class HomeInteractor {
     }
 }
 
-extension HomeInteractor: HomeUseCase {
-  
-    
+extension HomeInteractor {
     
     func getGroceries(completion: (GroceryResult) -> (Void)) {
         self.service.fetchGroceries { result in
@@ -42,11 +34,5 @@ extension HomeInteractor: HomeUseCase {
 //        return database.updateCart(using: CartItem(skuId: skuItem.skuId, value: skuItem.quantity))
 //    }
     
-        func addToCart(skuItem: SkuItem) -> Bool {
-    
-            guard skuItem.quantity > 0 else {
-                return self.database.delete(usingSkuId: skuItem.skuId)
-            }
-            return self.database.updateCart(using: CartItem(skuId: skuItem.skuId, value: skuItem.quantity))
-        }
+       
 }

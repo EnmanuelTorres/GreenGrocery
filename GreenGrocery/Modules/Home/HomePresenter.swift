@@ -14,15 +14,19 @@ protocol HomePresentation {
 
 class HomePresenter {
     weak var view: HomeView?
-    var interactor: HomeUseCase?
     var router: HomeRouting?
+    typealias UseCase = (
+        getGroceries: (_ completion: (GroceryResult) -> (Void)) -> Void,
+        addToCart: (SkuItem) -> Bool,
+        getCartItem: (String) -> CartItem
+    )
+    var useCase: UseCase?
     
-    init(view: HomeView, interactor: HomeUseCase, router: HomeRouting) {
+    init(view: HomeView, router: HomeRouting, useCase: HomePresenter.UseCase ) {
         self.view = view
-        self.interactor = interactor
         self.router = router
+        self.useCase = useCase
     }
-    
     
 }
 
@@ -32,21 +36,23 @@ extension HomePresenter: HomePresentation {
     
     func viewDidLoad() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.interactor?.getGroceries { result in
-               let groceryList = result.groceries.compactMap({GroceryItemViewModel(using: $0) })
+            self?.useCase?.getGroceries({ (result) in
+                let groceryList = result.groceries
+                    .compactMap({ grocery -> GroceryItemViewModel in
+                        let cartItem = self?.useCase?.getCartItem(grocery.skuId)
+                        return GroceryItemViewModel(using: grocery, cartItem: cartItem!)
+                })
                 DispatchQueue.main.async {
                     self?.view?.updateGroceries(groceriesList: groceryList)
                 }
-            }
+            })
         }
-        
-       
     }
     
     func onAddToCart(skuItem: SkuItem) -> Void {
         
         DispatchQueue.global(qos: .background).async {
-            let updated = self.interactor?.addToCart(skuItem: skuItem)
+            let updated = self.useCase?.addToCart(skuItem)
             print("Add to cart updated with result: \(String(describing: updated))")
             
             DispatchQueue.main.async {
@@ -65,12 +71,15 @@ struct GroceryItemViewModel {
     let details: String
     let image: String
     let price: String
+    let cartValue: CartValueViewModel
     
-    init(using groceryModel: Grocery) {
+    init(using groceryModel: Grocery, cartItem: CartItem) {
         self.id = groceryModel.skuId
         self.title = groceryModel.title
         self.details = groceryModel.details
         self.image = groceryModel.image
         self.price = "$ \(groceryModel.price)"
+        self.cartValue = CartValueViewModel(id: cartItem.skuId, stepValue: cartItem.value)
     }
+       
 }

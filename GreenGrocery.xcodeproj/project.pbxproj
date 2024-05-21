@@ -119,6 +119,7 @@
 		4E0064FC2BCD80E300B36CCC /* GreenGrocery */ = {
 			isa = PBXGroup;
 			children = (
+				4E1DCB372BFCFCC500E8903B /* Interactor */,
 				4E66B9132BF7FAF5003DC62D /* Database */,
 				4EB3728F2BEFF17900078401 /* Model */,
 				4EB3728C2BEFD16800078401 /* HttpService */,
@@ -155,6 +156,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		4E1DCB372BFCFCC500E8903B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */,
+				4E66B9432BFA3A77003DC62D /* CartInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		4E66B90C2BF7BA9C003DC62D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +173,6 @@
 				4E0065012BCD80E300B36CCC /* HomeViewController.swift */,
 				4E0065122BCD86E000B36CCC /* HomePresenter.swift */,
 				4E0065142BCD879C00B36CCC /* HomeRouter.swift */,
-				4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */,
 				4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */,
 			);
 			path = Home;
@@ -220,7 +229,6 @@
 			children = (
 				4E66B93B2BF97E6E003DC62D /* GroceryTabBarController.swift */,
 				4E66B93F2BF97F6A003DC62D /* TabBarRouter.swift */,
-				4E66B9432BFA3A77003DC62D /* CartInteractor.swift */,
 				4E66B9452BFA448A003DC62D /* TabBarPresenter.swift */,
 				4E66B93D2BF97F3B003DC62D /* TabBarModuleBuilder.swift */,
 			);

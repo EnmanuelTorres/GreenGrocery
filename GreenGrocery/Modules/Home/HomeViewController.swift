@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     
     lazy var custom : customView = {
         let control = customView()
-        let viewModel = AddBagViewModel(id: "22", title: "Add to Bag", stepValue: 0)
+        let viewModel = CartValueViewModel(id: "22", stepValue: 0)
         control.configure(usingViewModel: viewModel, bagClosure: { stepValue in
             print("este es el stepValue \(stepValue)")
         })

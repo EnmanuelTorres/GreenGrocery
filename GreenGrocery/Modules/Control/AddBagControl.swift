@@ -22,7 +22,7 @@ class customView: UIView {
     
     var closure: BagClosure?
     
-    var viewModel: AddBagViewModel! {
+    var viewModel: CartValueViewModel! {
         
         didSet {
             stepLabel.text = "\(viewModel.stepValue)"
@@ -50,7 +50,7 @@ class customView: UIView {
         self.addSubview(view)
     }
     
-    func configure(usingViewModel viewModel: AddBagViewModel, bagClosure: @escaping BagClosure) -> Void {
+    func configure(usingViewModel viewModel: CartValueViewModel, bagClosure: @escaping BagClosure) -> Void {
         self.viewModel = viewModel
         self.addButton.setTitle(viewModel.title, for: .normal)
         self.closure = bagClosure
@@ -81,33 +81,33 @@ extension UIView {
 }
 
 
-struct AddBagViewModel {
+struct CartValueViewModel {
     let id: String
     let title: String
     var stepValue: Int
     var showStepper: Bool
     
-    init(id: String, title: String, stepValue: Int) {
+    init(id: String, stepValue: Int) {
         self.id = id
-        self.title = title
+        self.title = "Add to Bag"
         self.stepValue = stepValue
         self.showStepper = (stepValue > 0)
     }
 }
 
-extension AddBagViewModel {
+extension CartValueViewModel {
     
-    func onAddToBag() -> AddBagViewModel {
-        return AddBagViewModel(id: id, title: title, stepValue: 1)
+    func onAddToBag() -> CartValueViewModel {
+        return CartValueViewModel(id: id, stepValue: 1)
     }
     
-    func onIncrement() -> AddBagViewModel {
+    func onIncrement() -> CartValueViewModel {
         guard stepValue < 10 else { return self }
-        return AddBagViewModel(id: id, title: title, stepValue: stepValue + 1)
+        return CartValueViewModel(id: id, stepValue: stepValue + 1)
     }
     
-    func onDecrement() -> AddBagViewModel {
+    func onDecrement() -> CartValueViewModel {
         guard stepValue > 0 else { return self }
-        return AddBagViewModel(id: id, title: title, stepValue: stepValue - 1)
+        return CartValueViewModel(id: id, stepValue: stepValue - 1)
     }
 }

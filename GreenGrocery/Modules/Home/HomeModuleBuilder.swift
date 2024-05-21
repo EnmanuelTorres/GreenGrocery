@@ -14,9 +14,14 @@ class HomeModuleBuilder {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         view.title = "Fresh Groceries"
-        let interactor = HomeInteractor(service: Service.shared, database: Database.shared)
+        let homeInteractor = HomeInteractor(service: Service.shared, database: Database.shared)
+        let cartInteractor = CartInteractor(database: Database.shared)
         let router = HomeRouter(viewController: view)
-        let presenter = HomePresenter(view: view, interactor: interactor, router: router)
+        let presenter = HomePresenter(view: view, router: router, useCase: (
+            getGroceries: homeInteractor.getGroceries,
+            addToCart: cartInteractor.addToCart,
+            getCartItem: cartInteractor.getCartItem
+        ))
         view.presenter = presenter
         
         return factory(view)

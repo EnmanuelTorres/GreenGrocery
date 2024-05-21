@@ -19,7 +19,14 @@ class Database {
 
 extension Database: CartDB {
    
-    
+    func getCartItem(usingSkuId skuId: String) -> CartItem {
+        
+        let realm = try! Realm()
+        guard let realmObject = realm.objects(RealmCartItem.self).first(where: { $0.skuId == skuId }) else {
+            return CartItem(skuId: skuId, value: 0)
+        }
+        return CartItem(realmCartItem: realmObject)
+    }
   
     
     func updateCart(using cartItem: CartItem) -> (Bool) {
