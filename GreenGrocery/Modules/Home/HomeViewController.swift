@@ -9,12 +9,21 @@ import UIKit
 
 protocol HomeView: AnyObject{
     func updateGroceries(groceriesList: [GroceryItemViewModel]) -> Void
+    func loadCategories(categoriesList: [CategoryItemViewModel]) -> ()
 }
 
 class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var topCategoryView: CategoryView!
+    
+    @IBOutlet weak var leftTopCategoryView: CategoryView!
+    
+    @IBOutlet weak var leftBottomCategoryView: CategoryView!
+    
+    @IBOutlet weak var rightCategoryView: CategoryView!
     
     private static let groceryCellID = "groceryCellID"
     
@@ -45,15 +54,56 @@ class HomeViewController: UIViewController {
     
     private func setupCounterView() {
      //   containerStackView.addArrangedSubview(custom)
-        self.tableView.register(UINib(nibName: "GroceryItemCell", bundle: nil), forCellReuseIdentifier: HomeViewController.groceryCellID)
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        /// Todo - Move the tableview logic to groceries listing screen
+     //   self.tableView.register(UINib(nibName: "GroceryItemCell", bundle: nil), forCellReuseIdentifier: HomeViewController.groceryCellID)
+     //   self.tableView.dataSource = self
+     //   self.tableView.delegate = self
     }
 
 
 }
 
 extension HomeViewController: HomeView {
+    func loadCategories(categoriesList: [CategoryItemViewModel]) {
+        topCategoryView.configure(usingViewModel: categoriesList[0]) { [weak self] (imageName) in
+            self?.presenter?.onFetchThumbnail(imageName: imageName) { data in
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    self?.topCategoryView.updateImage(image: image)
+                }
+            }
+        }
+        
+        leftTopCategoryView.configure(usingViewModel: categoriesList[1]) { [weak self] (imageName) in
+            self?.presenter?.onFetchThumbnail(imageName: imageName) { data in
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    self?.leftTopCategoryView.updateImage(image: image)
+                }
+            }
+        }
+        
+        leftBottomCategoryView.configure(usingViewModel: categoriesList[2]) { [weak self] (imageName) in
+            self?.presenter?.onFetchThumbnail(imageName: imageName) { data in
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    self?.leftBottomCategoryView.updateImage(image: image)
+                }
+            }
+        }
+        
+        rightCategoryView.configure(usingViewModel: categoriesList[3]) { [weak self] (imageName) in
+            self?.presenter?.onFetchThumbnail(imageName: imageName) { data in
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    self?.rightCategoryView.updateImage(image: image)
+                }
+            }
+        }
+        
+       
+    }
+    
     func updateGroceries(groceriesList: [GroceryItemViewModel]) {
     
         self.dataSource = groceriesList

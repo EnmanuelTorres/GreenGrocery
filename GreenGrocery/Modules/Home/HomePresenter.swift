@@ -10,15 +10,17 @@ import Foundation
 protocol HomePresentation {
     func viewDidLoad() -> Void
     func onAddToCart(skuItem: SkuItem) -> Void
+    func onFetchThumbnail(imageName: String, completion: @escaping (Data) -> Void) -> Void
 }
 
 class HomePresenter {
     weak var view: HomeView?
     var router: HomeRouting?
     typealias UseCase = (
-        getGroceries: (_ completion: (GroceryResult) -> (Void)) -> Void,
+        getCategories: (_ completion: @escaping CategoriesClosure) -> Void,
         addToCart: (SkuItem) -> Bool,
-        getCartItem: (String) -> CartItem
+        getCartItem: (String) -> CartItem,
+        fetchThumbnail: (_ imageName: String, _ completion: @escaping ImageClosure) -> Void
     )
     var useCase: UseCase?
     
@@ -31,20 +33,22 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomePresentation {
+    func onFetchThumbnail(imageName: String, completion: @escaping (Data) -> Void) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.useCase?.fetchThumbnail(imageName) { data in
+                guard let data = data else { return }
+                completion(data)
+            }
+        }
+    }
+    
    
-    
-    
     func viewDidLoad() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.useCase?.getGroceries({ (result) in
-                let groceryList = result.groceries
-                    .compactMap({ grocery -> GroceryItemViewModel in
-                        let cartItem = self?.useCase?.getCartItem(grocery.skuId)
-                        return GroceryItemViewModel(using: grocery, cartItem: cartItem!)
+            self?.useCase?.getCategories ({ categories in
+                print("Load categories: \(categories)")
+                self?.view?.loadCategories(categoriesList: categories.categories.compactMap {  CategoryItemViewModel(using: $0)
                 })
-                DispatchQueue.main.async {
-                    self?.view?.updateGroceries(groceriesList: groceryList)
-                }
             })
         }
     }
@@ -62,6 +66,21 @@ extension HomePresenter: HomePresentation {
     }
        
     
+}
+
+struct CategoryItemViewModel {
+    
+    let id: Int
+    let title: String
+    let details: String
+    let imageName: String
+    
+    init(using categoryModel: Category) {
+        self.id = Int(categoryModel.id) ?? 0
+        self.title = categoryModel.name
+        self.details = categoryModel.description
+        self.imageName = categoryModel.image
+    }
 }
 
 struct GroceryItemViewModel {

@@ -22,17 +22,14 @@ class HomeInteractor {
 
 extension HomeInteractor {
     
+    func getCategories(completion: @escaping CategoriesClosure) -> Void {
+        self.service.fetchCategories(completion: completion)
+    }
+    
     func getGroceries(completion: (GroceryResult) -> (Void)) {
         self.service.fetchGroceries { result in
             completion(result)
         }
         
     }
-    
-    
-//    func addToCart(skuItem: SkuItem) -> Bool {
-//        return database.updateCart(using: CartItem(skuId: skuItem.skuId, value: skuItem.quantity))
-//    }
-    
-       
 }

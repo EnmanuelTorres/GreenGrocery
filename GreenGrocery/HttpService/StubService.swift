@@ -1,5 +1,5 @@
 //
-//  service.swift
+//  StubService.swift
 //  GreenGrocery
 //
 //  Created by ENMANUEL TORRES on 11/05/24.
@@ -7,19 +7,17 @@
 
 import Foundation
 
-typealias GroceriesClosure = (GroceryResult) -> (Void)
-protocol GroceriesAPI {
-    func fetchGroceries(completion: GroceriesClosure) -> ( Void)
-}
-
-
-class Service {
+class StubService {
     
-    static let shared: Service = Service()
+    static let shared: StubService = StubService()
     private init(){}
 }
 
-extension Service: GroceriesAPI {
+extension StubService: GroceriesAPI {
+    func fetchCategories(completion: @escaping CategoriesClosure) {
+        fatalError("No implementation for this yet!")
+    }
+    
     
     func fetchGroceries(completion: (GroceryResult) -> (Void)) {
         
