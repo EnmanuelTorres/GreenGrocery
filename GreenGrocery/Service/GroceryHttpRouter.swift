@@ -11,43 +11,27 @@ import Alamofire
 
 enum GroceryHttpRouter {
     case getGroceryCategories
-    case getGroceries(categoryId: String)
-    case downloadThumbnail(imageName: String)
-    case downloadImage(imageName: String)
+    case getGroceries(categoryName: String)
+   
 }
 
 extension GroceryHttpRouter: HttpRouter {
     
     var baseUrlString: String {
-      //  return "https://letscodeeasy.com/groceryapi/public/api"
-        
-//        switch self {
-//        case .getGroceryCategories:
-//            return "https://www.themealdb.com/api/json/v1/1"
-//        case .downloadThumbnail(imageName: <#T##String#>):
-//            return imageName
-//        default:
-//            return "https://www.themealdb.com/images"
-//        }
        
         return "https://www.themealdb.com/api/json/v1/1"
         
-        
     }
+    
+  //  www.themealdb.com/api/json/v1/1/filter.php?c=
     
     var path: String {
         switch (self) {
         case .getGroceryCategories:
             return "/categories.php"
         case .getGroceries(let categoryId):
-            return "/category/\(categoryId)"
-        case .downloadThumbnail(let imageName):
-            print("\(imageName.lowercased())")
-         //   return  "https://www.themealdb.com/images/category/\(imageName.lowercased())"
-        //    return "/thumbnail/show/\(imageName)"
-            return "\(imageName)"
-        case .downloadImage(let imageName):
-            return "/image/show/\(imageName)"
+            return "/filter.php?c=\(categoryId)"
+          //  return "/category/\(categoryId)"
         }
     }
     
@@ -56,9 +40,6 @@ extension GroceryHttpRouter: HttpRouter {
     }
     
     var headers: HTTPHeaders? {
-//        return [
-//            "Content-Type": "application/json; charset=UTF-8"
-//        ]
         return nil
     }
     
@@ -67,17 +48,19 @@ extension GroceryHttpRouter: HttpRouter {
     }
     
     var urlString: String {
-        switch self {
-        case .downloadThumbnail:
-            return path
-        default:
-            return baseUrlString + path
-        }
+//        switch self {
+//        case .downloadThumbnail:
+//            return path
+//        default:
+//            return baseUrlString + path
+//        }
+        
+        return baseUrlString + path
     }
     
     func body() throws -> Data? {
         switch self {
-        case .getGroceryCategories, .getGroceries, .downloadThumbnail, .downloadImage:
+        case .getGroceryCategories, .getGroceries:
             return nil
         }
     }

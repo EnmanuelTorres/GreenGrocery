@@ -9,7 +9,7 @@ import Foundation
 
 typealias SkuItem = (skuId: String, quantity: Int)
 
-class HomeInteractor {
+class DishesInteractor {
     
     var service: GroceriesAPI
     var database: CartDB
@@ -20,16 +20,16 @@ class HomeInteractor {
     }
 }
 
-extension HomeInteractor {
+extension DishesInteractor {
     
     func getCategories(completion: @escaping CategoriesClosure) -> Void {
         self.service.fetchCategories(completion: completion)
     }
     
-    func getGroceries(completion: (GroceryResult) -> (Void)) {
-        self.service.fetchGroceries { result in
-            completion(result)
-        }
-        
+    func getGroceries(categoryName: String, completion: @escaping GroceriesClosure) -> (Void) {
+//        self.service.fetchGroceries(categoryName: categoryName) { result in
+//            completion(result)
+//        }
+        self.service.fetchGroceries(categoryName: categoryName, completion: completion)
     }
 }

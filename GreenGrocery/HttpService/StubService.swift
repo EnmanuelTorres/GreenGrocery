@@ -14,6 +14,10 @@ class StubService {
 }
 
 extension StubService: GroceriesAPI {
+    func fetchGroceries(categoryName: String, completion: @escaping GroceriesClosure) {
+        fatalError("No implementation for this yet!")
+    }
+    
     func fetchCategories(completion: @escaping CategoriesClosure) {
         fatalError("No implementation for this yet!")
     }

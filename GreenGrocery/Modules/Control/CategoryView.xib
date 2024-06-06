@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="366" height="386"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BKB-1h-yRP">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="BKB-1h-yRP">
                     <rect key="frame" x="0.0" y="4" width="366" height="382"/>
                 </imageView>
                 <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1w-jP-ZSc">
@@ -44,11 +44,22 @@
                         </label>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVz-Fb-eFN">
+                    <rect key="frame" x="0.0" y="85" width="366" height="165.5"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="onCategoryTap:" destination="-1" eventType="touchUpInside" id="XG7-5e-BGw"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="kVz-Fb-eFN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1qa-9R-c2R"/>
                 <constraint firstItem="y1w-jP-ZSc" firstAttribute="centerY" secondItem="iH0-78-oPy" secondAttribute="centerY" id="2cc-oo-bqV"/>
+                <constraint firstItem="y1w-jP-ZSc" firstAttribute="top" secondItem="kVz-Fb-eFN" secondAttribute="bottom" constant="34" id="Adw-C8-pYa"/>
+                <constraint firstItem="kVz-Fb-eFN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="37" id="Das-BJ-Zd1"/>
                 <constraint firstItem="iH0-78-oPy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="26" id="J7f-Ff-Rga"/>
                 <constraint firstItem="y1w-jP-ZSc" firstAttribute="width" secondItem="iH0-78-oPy" secondAttribute="width" constant="16" id="RN6-Pg-BmY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iH0-78-oPy" secondAttribute="bottom" constant="15" id="UCF-bO-8E2"/>
@@ -59,6 +70,7 @@
                 <constraint firstItem="y1w-jP-ZSc" firstAttribute="centerX" secondItem="iH0-78-oPy" secondAttribute="centerX" id="sRL-EE-7cS"/>
                 <constraint firstItem="BKB-1h-yRP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tjq-DM-ay0"/>
                 <constraint firstItem="BKB-1h-yRP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="34" id="xJ6-Iv-bnk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kVz-Fb-eFN" secondAttribute="trailing" id="yjN-zY-MRO"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -66,4 +78,7 @@
             <point key="canvasLocation" x="36.231884057971016" y="12.053571428571429"/>
         </view>
     </objects>
+    <resources>
+        <image name="placeholder" width="994" height="688"/>
+    </resources>
 </document>

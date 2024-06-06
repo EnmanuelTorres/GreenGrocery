@@ -5,10 +5,10 @@
 //  Created by ENMANUEL TORRES on 22/05/24.
 //
 
-typealias GroceriesClosure = (GroceryResult) -> (Void)
-typealias CategoriesClosure = (CategoriesResponse) -> (Void)
+typealias GroceriesClosure = (MealsResponse) -> (Void)
+typealias CategoriesClosure = ([Category]) -> (Void)
 
 protocol GroceriesAPI {
     func fetchCategories(completion: @escaping CategoriesClosure) -> Void
-    func fetchGroceries(completion: GroceriesClosure) -> (Void)
+    func fetchGroceries(categoryName: String, completion: @escaping GroceriesClosure) -> (Void)
 }

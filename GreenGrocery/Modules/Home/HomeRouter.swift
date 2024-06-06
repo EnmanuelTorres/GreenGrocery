@@ -8,17 +8,20 @@
 import UIKit
 
 protocol HomeRouting {
-    
+    func routeToDishesListing(usingCategory category: (id: Int, title: String, description: String)) -> Void
 }
 
 class HomeRouter {
-    var viewController: UIViewController
+    var view: UIViewController
     
-    init(viewController: UIViewController) {
-        self.viewController = viewController
+    init(view: UIViewController) {
+        self.view = view
     }
 }
 
 extension HomeRouter: HomeRouting {
-    
+    func routeToDishesListing(usingCategory category: (id: Int, title: String, description: String)) {
+        let dishesList = DishesListModuleBuilder.build(usingCategory: category)
+        self.view.navigationController?.pushViewController(dishesList, animated: true)
+    }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 fileprivate let categoryViewNibName = "CategoryView"
 
+typealias CategorySelectionHandler = (_ categoryId: Int, _ title: String, _ description: String) -> Void
+
 class CategoryView: UIView, ViewLoadable {
     static var nibName: String = categoryViewNibName
     
@@ -16,6 +18,9 @@ class CategoryView: UIView, ViewLoadable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var details: UILabel!
+    
+    var viewModel: CategoryItemViewModel?
+    var handler: CategorySelectionHandler?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,10 +49,14 @@ class CategoryView: UIView, ViewLoadable {
     /// Configure using CategoryItemViewModel
     ///
     /// - Parameter viewModel: CategoryItemViewModel
-    func configure(usingViewModel viewModel: CategoryItemViewModel, onComplete: (_ imageName: String) -> ()) -> Void {
+    func configure(usingViewModel viewModel: CategoryItemViewModel,
+                   onComplete: (_ imageName: String) -> (),
+                   categorySelectionHandler: @escaping CategorySelectionHandler) -> Void {
+        self.viewModel = viewModel
         title.text = viewModel.title.uppercased()
         details.text = viewModel.details
         onComplete(viewModel.imageName)
+        self.handler = categorySelectionHandler
     }
     
     /// UpdateImage
@@ -56,4 +65,11 @@ class CategoryView: UIView, ViewLoadable {
     func updateImage(image: UIImage) -> Void {
         imageView.image = image
     }
+    
+    @IBAction func onCategoryTap(_ sender: Any) {
+        guard let categoryId = viewModel?.id, let title = viewModel?.title, let description = viewModel?.details else { return }
+        print("debug: \(title)")
+        handler?(categoryId, title, description )
+    }
+    
 }

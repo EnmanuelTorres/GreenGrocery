@@ -9,8 +9,8 @@ import Foundation
 
 protocol HomePresentation {
     func viewDidLoad() -> Void
-    func onAddToCart(skuItem: SkuItem) -> Void
-    func onFetchThumbnail(imageName: String, completion: @escaping (Data) -> Void) -> Void
+    func onFetchThumbnail(imageName: String, completion: @escaping ImageClosure) -> Void
+    func onCategorySelection(usingCategory category: (id: Int, title: String, description: String)) -> (Void)
 }
 
 class HomePresenter {
@@ -18,7 +18,6 @@ class HomePresenter {
     var router: HomeRouting?
     typealias UseCase = (
         getCategories: (_ completion: @escaping CategoriesClosure) -> Void,
-        addToCart: (SkuItem) -> Bool,
         getCartItem: (String) -> CartItem,
         fetchThumbnail: (_ imageName: String, _ completion: @escaping ImageClosure) -> Void
     )
@@ -33,39 +32,27 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomePresentation {
-    func onFetchThumbnail(imageName: String, completion: @escaping (Data) -> Void) {
+    func onFetchThumbnail(imageName: String, completion: @escaping ImageClosure) {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.useCase?.fetchThumbnail(imageName) { data in
-                guard let data = data else { return }
-                completion(data)
+            self?.useCase?.fetchThumbnail(imageName) { image in
+                completion(image)
             }
         }
+    }
+    
+    func onCategorySelection(usingCategory category: (id: Int, title: String, description: String)) {
+        self.router?.routeToDishesListing(usingCategory: category)
     }
     
    
     func viewDidLoad() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.useCase?.getCategories ({ categories in
-                print("Load categories: \(categories)")
-                self?.view?.loadCategories(categoriesList: categories.categories.compactMap {  CategoryItemViewModel(using: $0)
-                })
+
+                self?.view?.loadCategories(categoriesList: categories.compactMap{ CategoryItemViewModel(using: $0)})
             })
         }
     }
-    
-    func onAddToCart(skuItem: SkuItem) -> Void {
-        
-        DispatchQueue.global(qos: .background).async {
-            let updated = self.useCase?.addToCart(skuItem)
-            print("Add to cart updated with result: \(String(describing: updated))")
-            
-            DispatchQueue.main.async {
-                /// Lets implement a spinner for this one
-            }
-        }
-    }
-       
-    
 }
 
 struct CategoryItemViewModel {
@@ -81,24 +68,4 @@ struct CategoryItemViewModel {
         self.details = categoryModel.description
         self.imageName = categoryModel.image
     }
-}
-
-struct GroceryItemViewModel {
-    
-    let id: String
-    let title: String
-    let details: String
-    let image: String
-    let price: String
-    let cartValue: CartValueViewModel
-    
-    init(using groceryModel: Grocery, cartItem: CartItem) {
-        self.id = groceryModel.skuId
-        self.title = groceryModel.title
-        self.details = groceryModel.details
-        self.image = groceryModel.image
-        self.price = "$ \(groceryModel.price)"
-        self.cartValue = CartValueViewModel(id: cartItem.skuId, stepValue: cartItem.value)
-    }
-       
 }

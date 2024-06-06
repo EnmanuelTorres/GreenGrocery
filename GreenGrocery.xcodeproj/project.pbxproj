@@ -15,7 +15,7 @@
 		4E00650A2BCD80E400B36CCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0065082BCD80E400B36CCC /* LaunchScreen.storyboard */; };
 		4E0065132BCD86E000B36CCC /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065122BCD86E000B36CCC /* HomePresenter.swift */; };
 		4E0065152BCD879C00B36CCC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065142BCD879C00B36CCC /* HomeRouter.swift */; };
-		4E0065172BCD87FB00B36CCC /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */; };
+		4E0065172BCD87FB00B36CCC /* DishesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065162BCD87FB00B36CCC /* DishesInteractor.swift */; };
 		4E0065192BCD894F00B36CCC /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0065182BCD894F00B36CCC /* HomeModel.swift */; };
 		4E00651C2BCD8A8900B36CCC /* HomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */; };
 		4E1DCB3A2BFE62E200E8903B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1DCB392BFE62E200E8903B /* Alamofire */; };
@@ -31,6 +31,15 @@
 		4E1DCB502C001BC000E8903B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB4E2C001BBF00E8903B /* CategoryView.swift */; };
 		4E1DCB512C001BC000E8903B /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1DCB4F2C001BC000E8903B /* CategoryView.xib */; };
 		4E1DCB532C0A3D3400E8903B /* ImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB522C0A3D3400E8903B /* ImageInteractor.swift */; };
+		4E1DCB572C0BCFAB00E8903B /* Dishes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E1DCB562C0BCFAB00E8903B /* Dishes.storyboard */; };
+		4E1DCB592C0BD03600E8903B /* DishesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB582C0BD03600E8903B /* DishesListViewController.swift */; };
+		4E1DCB5B2C0CBCDC00E8903B /* DishesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB5A2C0CBCDC00E8903B /* DishesListPresenter.swift */; };
+		4E1DCB5D2C0D353000E8903B /* DishesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB5C2C0D353000E8903B /* DishesListRouter.swift */; };
+		4E1DCB5F2C0D363B00E8903B /* DishesListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB5E2C0D363B00E8903B /* DishesListModuleBuilder.swift */; };
+		4E1DCB612C0D506700E8903B /* ImageHttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB602C0D506700E8903B /* ImageHttpRouter.swift */; };
+		4E1DCB632C0D535400E8903B /* ImageHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DCB622C0D535400E8903B /* ImageHttpService.swift */; };
+		4E1DCB662C0D53F900E8903B /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1DCB652C0D53F900E8903B /* AlamofireImage */; };
+		4E2772E52C11459F0017E4EE /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2772E42C11459F0017E4EE /* Meal.swift */; };
 		4E66B90E2BF7BC33003DC62D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */; };
 		4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */; };
 		4E66B9152BF7FBAC003DC62D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66B9142BF7FBAC003DC62D /* Database.swift */; };
@@ -70,7 +79,7 @@
 		4E00650B2BCD80E400B36CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0065122BCD86E000B36CCC /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		4E0065142BCD879C00B36CCC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		4E0065162BCD87FB00B36CCC /* DishesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesInteractor.swift; sourceTree = "<group>"; };
 		4E0065182BCD894F00B36CCC /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		4E00651B2BCD8A8900B36CCC /* HomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilder.swift; sourceTree = "<group>"; };
 		4E1DCB3D2BFE65C800E8903B /* HttpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRouter.swift; sourceTree = "<group>"; };
@@ -84,6 +93,14 @@
 		4E1DCB4E2C001BBF00E8903B /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		4E1DCB4F2C001BC000E8903B /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
 		4E1DCB522C0A3D3400E8903B /* ImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInteractor.swift; sourceTree = "<group>"; };
+		4E1DCB562C0BCFAB00E8903B /* Dishes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dishes.storyboard; sourceTree = "<group>"; };
+		4E1DCB582C0BD03600E8903B /* DishesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListViewController.swift; sourceTree = "<group>"; };
+		4E1DCB5A2C0CBCDC00E8903B /* DishesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListPresenter.swift; sourceTree = "<group>"; };
+		4E1DCB5C2C0D353000E8903B /* DishesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListRouter.swift; sourceTree = "<group>"; };
+		4E1DCB5E2C0D363B00E8903B /* DishesListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListModuleBuilder.swift; sourceTree = "<group>"; };
+		4E1DCB602C0D506700E8903B /* ImageHttpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHttpRouter.swift; sourceTree = "<group>"; };
+		4E1DCB622C0D535400E8903B /* ImageHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHttpService.swift; sourceTree = "<group>"; };
+		4E2772E42C11459F0017E4EE /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		4E66B90D2BF7BC33003DC62D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		4E66B9112BF7C41C003DC62D /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
 		4E66B9142BF7FBAC003DC62D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -117,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E66B9292BF80240003DC62D /* RealmSwift in Frameworks */,
+				4E1DCB662C0D53F900E8903B /* AlamofireImage in Frameworks */,
 				4E1DCB3C2BFE62E200E8903B /* AlamofireDynamic in Frameworks */,
 				4E1DCB3A2BFE62E200E8903B /* Alamofire in Frameworks */,
 			);
@@ -165,6 +183,7 @@
 		4E0065112BCD812600B36CCC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4E1DCB542C0BCEEF00E8903B /* Dishes */,
 				4E66B93A2BF97E24003DC62D /* TabBar */,
 				4E66B9332BF97C96003DC62D /* Profile */,
 				4E66B92C2BF978FC003DC62D /* Cart */,
@@ -186,7 +205,7 @@
 		4E1DCB372BFCFCC500E8903B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				4E0065162BCD87FB00B36CCC /* HomeInteractor.swift */,
+				4E0065162BCD87FB00B36CCC /* DishesInteractor.swift */,
 				4E66B9432BFA3A77003DC62D /* CartInteractor.swift */,
 				4E1DCB522C0A3D3400E8903B /* ImageInteractor.swift */,
 			);
@@ -204,10 +223,22 @@
 			path = HttpService;
 			sourceTree = "<group>";
 		};
-		4E66B90C2BF7BA9C003DC62D /* Home */ = {
+		4E1DCB542C0BCEEF00E8903B /* Dishes */ = {
 			isa = PBXGroup;
 			children = (
 				4EF2DFE52BD048780030633D /* Cell */,
+				4E1DCB582C0BD03600E8903B /* DishesListViewController.swift */,
+				4E1DCB5A2C0CBCDC00E8903B /* DishesListPresenter.swift */,
+				4E1DCB5C2C0D353000E8903B /* DishesListRouter.swift */,
+				4E1DCB5E2C0D363B00E8903B /* DishesListModuleBuilder.swift */,
+				4E1DCB562C0BCFAB00E8903B /* Dishes.storyboard */,
+			);
+			path = Dishes;
+			sourceTree = "<group>";
+		};
+		4E66B90C2BF7BA9C003DC62D /* Home */ = {
+			isa = PBXGroup;
+			children = (
 				4E0065032BCD80E300B36CCC /* Main.storyboard */,
 				4E0065012BCD80E300B36CCC /* HomeViewController.swift */,
 				4E0065122BCD86E000B36CCC /* HomePresenter.swift */,
@@ -281,6 +312,8 @@
 				4E1DCB3F2BFE677500E8903B /* HttpService.swift */,
 				4E1DCB412BFE93DD00E8903B /* GroceryHttpService.swift */,
 				4E1DCB432BFE966F00E8903B /* GroceryHttpRouter.swift */,
+				4E1DCB602C0D506700E8903B /* ImageHttpRouter.swift */,
+				4E1DCB622C0D535400E8903B /* ImageHttpService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -291,6 +324,7 @@
 				4EB372902BEFF18700078401 /* GroceryResult.swift */,
 				4E66B9182BF7FE9B003DC62D /* CartItem.swift */,
 				4E1DCB482BFEA53500E8903B /* Category.swift */,
+				4E2772E42C11459F0017E4EE /* Meal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,6 +378,7 @@
 				4E66B9282BF80240003DC62D /* RealmSwift */,
 				4E1DCB392BFE62E200E8903B /* Alamofire */,
 				4E1DCB3B2BFE62E200E8903B /* AlamofireDynamic */,
+				4E1DCB652C0D53F900E8903B /* AlamofireImage */,
 			);
 			productName = GreenGrocery;
 			productReference = 4E0064FA2BCD80E300B36CCC /* GreenGrocery.app */;
@@ -376,6 +411,7 @@
 			packageReferences = (
 				4E66B9252BF80240003DC62D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				4E1DCB382BFE62E200E8903B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4E1DCB642C0D53F900E8903B /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 4E0064FB2BCD80E300B36CCC /* Products */;
 			projectDirPath = "";
@@ -399,6 +435,7 @@
 				4EB372932BF434D100078401 /* products.json in Resources */,
 				4E0065052BCD80E300B36CCC /* Main.storyboard in Resources */,
 				4EB3728B2BEFBACA00078401 /* GroceryItemCell.xib in Resources */,
+				4E1DCB572C0BCFAB00E8903B /* Dishes.storyboard in Resources */,
 				4E66B9302BF979BB003DC62D /* Cart.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,16 +448,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E1DCB3E2BFE65C800E8903B /* HttpRouter.swift in Sources */,
+				4E1DCB592C0BD03600E8903B /* DishesListViewController.swift in Sources */,
 				4E66B9322BF97B0D003DC62D /* CartModuleBuilder.swift in Sources */,
 				4E00651C2BCD8A8900B36CCC /* HomeModuleBuilder.swift in Sources */,
 				4E1DCB472BFE9FFE00E8903B /* GroceriesAPI.swift in Sources */,
 				4EBA32F22BE893CF0092104D /* AddBagControl.swift in Sources */,
 				4EB372912BEFF18700078401 /* GroceryResult.swift in Sources */,
 				4EB3728A2BEFBACA00078401 /* GroceryItemCell.swift in Sources */,
+				4E1DCB5B2C0CBCDC00E8903B /* DishesListPresenter.swift in Sources */,
 				4E66B9192BF7FE9B003DC62D /* CartItem.swift in Sources */,
 				4E66B9362BF97CCE003DC62D /* ProfileViewController.swift in Sources */,
 				4E0065022BCD80E300B36CCC /* HomeViewController.swift in Sources */,
 				4E66B9462BFA448A003DC62D /* TabBarPresenter.swift in Sources */,
+				4E1DCB632C0D535400E8903B /* ImageHttpService.swift in Sources */,
 				4E1DCB492BFEA53500E8903B /* Category.swift in Sources */,
 				4E0064FE2BCD80E300B36CCC /* AppDelegate.swift in Sources */,
 				4E66B9152BF7FBAC003DC62D /* Database.swift in Sources */,
@@ -434,8 +474,10 @@
 				4E66B92E2BF979A9003DC62D /* CartViewController.swift in Sources */,
 				4E0065192BCD894F00B36CCC /* HomeModel.swift in Sources */,
 				4E1DCB4B2BFEA6E500E8903B /* GroceryService.swift in Sources */,
-				4E0065172BCD87FB00B36CCC /* HomeInteractor.swift in Sources */,
+				4E1DCB5D2C0D353000E8903B /* DishesListRouter.swift in Sources */,
+				4E0065172BCD87FB00B36CCC /* DishesInteractor.swift in Sources */,
 				4E66B9402BF97F6A003DC62D /* TabBarRouter.swift in Sources */,
+				4E1DCB5F2C0D363B00E8903B /* DishesListModuleBuilder.swift in Sources */,
 				4E0065132BCD86E000B36CCC /* HomePresenter.swift in Sources */,
 				4E66B92B2BF80430003DC62D /* RealmCartItem.swift in Sources */,
 				4E66B9392BF97D29003DC62D /* ProfileModuleBuilder.swift in Sources */,
@@ -443,7 +485,9 @@
 				4E1DCB532C0A3D3400E8903B /* ImageInteractor.swift in Sources */,
 				4E66B93E2BF97F3B003DC62D /* TabBarModuleBuilder.swift in Sources */,
 				4E0065152BCD879C00B36CCC /* HomeRouter.swift in Sources */,
+				4E1DCB612C0D506700E8903B /* ImageHttpRouter.swift in Sources */,
 				4EBA32DC2BE85B3E0092104D /* ViewLoadable.swift in Sources */,
+				4E2772E52C11459F0017E4EE /* Meal.swift in Sources */,
 				4E66B9122BF7C41C003DC62D /* NavigationBuilder.swift in Sources */,
 				4E66B9442BFA3A77003DC62D /* CartInteractor.swift in Sources */,
 				4E1DCB4D2BFEA71900E8903B /* ImagesAPI.swift in Sources */,
@@ -688,6 +732,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		4E1DCB642C0D53F900E8903B /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
 		4E66B9252BF80240003DC62D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
@@ -708,6 +760,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4E1DCB382BFE62E200E8903B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		4E1DCB652C0D53F900E8903B /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E1DCB642C0D53F900E8903B /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 		4E66B9282BF80240003DC62D /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
