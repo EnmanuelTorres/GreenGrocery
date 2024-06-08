@@ -68,7 +68,6 @@ class CategoryView: UIView, ViewLoadable {
     
     @IBAction func onCategoryTap(_ sender: Any) {
         guard let categoryId = viewModel?.id, let title = viewModel?.title, let description = viewModel?.details else { return }
-        print("debug: \(title)")
         handler?(categoryId, title, description )
     }
     

@@ -22,8 +22,6 @@ class DishesListViewController: UIViewController {
     @IBOutlet weak var coverHeightConstraint: NSLayoutConstraint!
     private static let groceryCellID = "groceryCellID"
     
-    var previousOffsetState: CGFloat = 0
-    var largeNavigationBarHeight: CGFloat = 50
     var isCoverHidden: Bool = false
     
     lazy var vm = CoverImageHeightViewModel(currentOffset: tableView.contentOffset.y, previousOffset: 0, coverHeight: coverHeightConstraint.constant)
@@ -44,7 +42,7 @@ class DishesListViewController: UIViewController {
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableView.automaticDimension
         self.presenter?.viewDidLoad()
-       
+      
     }
 }
 

@@ -16,9 +16,6 @@ class GroceryService {
 
 extension GroceryService: GroceriesAPI {
    
-    
-    
-    
     func fetchGroceries(categoryName: String, completion: @escaping (MealsResponse) -> (Void)) {
         do {
             try GroceryHttpRouter
@@ -33,44 +30,7 @@ extension GroceryService: GroceriesAPI {
             print("Something went wrong while fetching categories! = \(error)")
         }
     }
-    
-//    func fetchGroceries(completion: (Category) -> (Void)) {
-//        do {
-//            try GroceryHttpRouter
-//                .getGroceries(categoryName: categoryId)
-//                .request(usingHttpService: httpService)
-//                .responseJSON { (result) in
-//                    let groceriesResult = GroceryService.parseGroceriesResult(result: result)
-//                    guard let category = groceriesResult else { return }
-//                    completion(category)
-//            }
-//        } catch {
-//            print("Something went wrong while fetching categories! = \(error)")
-//        }
-//    }
-    
-    
-//    func fetchCategories(completion: @escaping (CategoriesResponse) -> (Void)) {
-//        // Start making the http call to fetch categories
-//        do {
-//            try GroceryHttpRouter
-//                .getGroceryCategories
-//                .request(usingHttpService: httpService)
-//                .responseDecodable(of: CategoriesResponse.self) { response in
-//                    switch response.result {
-//                    case .success(let categories):
-//                        completion(categories)
-//                    case .failure(let error):
-//                        print("Somethinggg went wrong while fetching categories! \(error)")
-//                     //   completion(nil)
-//                    }
-//                }
-//            
-//        } catch {
-//            print("Something went wrong while fetching categories! = \(error)")
-//        }
-//    }
-    
+
     func fetchCategories(completion: @escaping ([Category]) -> (Void)) {
         // Start making the http call to fetch categories
         do {
@@ -100,8 +60,6 @@ extension GroceryService: ImagesAPI {
                     case .success(let image):
                         completion(image)
                     case .failure(let error):
-                        print("estan llamando al fetchImage")
-                        print("este es el name \(imageName)")
                         print("Something went wrong while fetching image! = \(error)")
                     }
                 }

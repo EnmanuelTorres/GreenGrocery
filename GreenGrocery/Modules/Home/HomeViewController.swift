@@ -54,7 +54,6 @@ extension HomeViewController: HomeView {
                     }
                 },
                 categorySelectionHandler: { (categoryId, title, description) in
-                    print("Category id = \(categoryId), title = \(title)")
                     self.presenter?.onCategorySelection(usingCategory: (id: categoryId, title: title, description: description))
             })
         }

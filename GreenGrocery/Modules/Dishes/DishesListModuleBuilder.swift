@@ -22,7 +22,6 @@ class DishesListModuleBuilder {
             fetchThumbnail: imageInteractor.fetchThumbnail
         )
         let router = DishesListRouter(viewController: view)
-        print("Debug: este es el title: \(category.title)")
         let presenter = DishesListPresenter(categoryName: category.title, categoryDescription: category.description, router: router, useCase: useCase)
         presenter.view = view
         view.presenter = presenter

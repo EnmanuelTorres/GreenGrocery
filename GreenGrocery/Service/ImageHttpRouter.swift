@@ -26,7 +26,6 @@ extension ImageHttpRouter {
             return  "https://www.themealdb.com/images/category/\(imageName).png"
             
         case .downloadThumbnail(imageName: let imageName):
-         //  return  "https://www.themealdb.com/images/category/\(imageName).png"
             return "\(imageName)"
         }
     }
@@ -48,14 +47,8 @@ extension ImageHttpRouter {
     }
     
     func asURLRequest() throws -> URLRequest {
-//        var url = try baseUrlString.asURL()
-//        url.appendPathComponent(path)
-//        let request = try URLRequest(url: url, method: .get, headers: nil)
-//        return request
-        
         var url = try  urlString.asURL()
-        print("Debug: this is the url: \(url)")
-        
+       
         var request = try URLRequest(url: url, method: method, headers: headers)
         return request
     }
@@ -63,6 +56,5 @@ extension ImageHttpRouter {
     func request(usingHttpService service: ImageHttpService, completion: @escaping ImageDataResponse) throws -> Void {
         try service.download(asURLRequest(), completion: completion)
     }
-    
     
 }

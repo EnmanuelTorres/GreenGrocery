@@ -27,9 +27,6 @@ extension DishesInteractor {
     }
     
     func getGroceries(categoryName: String, completion: @escaping GroceriesClosure) -> (Void) {
-//        self.service.fetchGroceries(categoryName: categoryName) { result in
-//            completion(result)
-//        }
         self.service.fetchGroceries(categoryName: categoryName, completion: completion)
     }
 }

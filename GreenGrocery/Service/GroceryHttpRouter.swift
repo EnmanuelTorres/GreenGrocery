@@ -20,10 +20,7 @@ extension GroceryHttpRouter: HttpRouter {
     var baseUrlString: String {
        
         return "https://www.themealdb.com/api/json/v1/1"
-        
     }
-    
-  //  www.themealdb.com/api/json/v1/1/filter.php?c=
     
     var path: String {
         switch (self) {
@@ -31,7 +28,6 @@ extension GroceryHttpRouter: HttpRouter {
             return "/categories.php"
         case .getGroceries(let categoryId):
             return "/filter.php?c=\(categoryId)"
-          //  return "/category/\(categoryId)"
         }
     }
     
@@ -48,13 +44,6 @@ extension GroceryHttpRouter: HttpRouter {
     }
     
     var urlString: String {
-//        switch self {
-//        case .downloadThumbnail:
-//            return path
-//        default:
-//            return baseUrlString + path
-//        }
-        
         return baseUrlString + path
     }
     

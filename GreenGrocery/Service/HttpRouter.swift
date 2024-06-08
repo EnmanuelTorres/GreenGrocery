@@ -26,10 +26,8 @@ extension HttpRouter {
     func body() throws -> Data? { return nil }
     
     func asURLRequest() throws -> URLRequest {
-//        var url = try baseUrlString.asURL()
-//        url.appendPathComponent(path)
+
         var url = try  urlString.asURL()
-        print("Debug: this is the url: \(url)")
         
         var request = try URLRequest(url: url, method: method, headers: headers)
         request.httpBody = try body()
